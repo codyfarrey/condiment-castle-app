@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Roboto:wght@400;500&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -17,5 +19,79 @@
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Roboto', sans-serif;
+  padding: 1rem;
+}
+
+h1, h2, h3 {
+  font-family: 'Outfit', sans-serif;
+}
+
+button {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 400;
+}
+
+/* Card container */
+.serverCard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+/* Left content (title, IP, status) */
+.serverCardContent {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+/* Title styling */
+.serverCardTitle {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+/* IP address styling */
+.serverCardIP {
+  color: #666;
+}
+
+/* Status text styling */
+.serverCardStatus {
+  font-weight: bold;
+}
+
+.serverCard {
+  display: flex;
+  flex-direction: column;
+  width: 600px;
+  margin: 15px;
+  background-color: #2C2C38;
+  border-radius: 10px;
+}
+
+.serverCardTop {
+  display: flex;
+}
+
+.serverCardImage {
+  width: 275px;
+  height: 275px;
+  border-radius: 45%;
+  object-fit: cover;
+}
+
+/* Button container */
+.serverCardButtons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 1rem;
 }
