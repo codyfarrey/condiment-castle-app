@@ -1,8 +1,9 @@
 import React from "react";
 import Button from "./Button";
 import Image from 'next/image';
+import StatusLabel from "./StatusLabel";
 
-export default function ServerCard({game, ip, serverStatus, playerCount}) {
+export default function ServerCard({game, ip, isOnline, playerCount, maxPlayerCount}) {
     const startServerClicked = () => {
         console.log("Starting Server...");
     }
@@ -16,8 +17,8 @@ export default function ServerCard({game, ip, serverStatus, playerCount}) {
         <div className = "serverCardTop">
             <div className = "serverCardContent">
                 <h2 className="serverCardTitle">{game}</h2>
-                <p className="serverCardIP">IP: {ip}</p>
-                <h3 className="serverCardStatus">{serverStatus} ({playerCount})</h3>
+                <p className="serverCardIP">{ip}</p>
+                <StatusLabel isOnline={isOnline} playerCount={playerCount} maxPlayerCount={maxPlayerCount} />
                 <div className = "serverCardButtons">
                     <Button label="Start Server" onClick={startServerClicked} />
                     <Button label="Join Server" onClick={joinServerClicked} />

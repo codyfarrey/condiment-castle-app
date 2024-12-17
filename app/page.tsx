@@ -1,6 +1,7 @@
 "use client"; 
 import Navbar from './components/Navbar';
 import ServerCard from './components/ServerCard';
+import Image from 'next/image';
 
 
 export default function Home() {
@@ -8,15 +9,14 @@ export default function Home() {
     <div className="home">
       <Navbar />
       <header className="hero">
-        <h1>Welcome to Condiment Castle</h1>
-        <p>Your hub for gaming servers and community events!</p>
+        <Image alt="Condiment Castle Minecraft Hero Image" width={"975"} height={"550"} src="/condiment-castle-mc-hero.png" />
       </header>
 
       <section className="servers">
         <div className="serverList">
-          <ServerCard game="minecraft" ip="mc.condiment-castle.com" serverStatus="Online" playerCount="1/12" />
-          <ServerCard game="astroneer" ip="an.condiment-castle.com" serverStatus="Offline" playerCount="0/8"/>
-          <ServerCard game="valheim" ip="vh.condiment-castle.com" serverStatus="Offline" playerCount="0/8"/>
+          <ServerCard game="minecraft" ip="mc.condiment-castle.com" isOnline={true} playerCount="1" maxPlayerCount="20" />
+          <ServerCard game="astroneer" ip="an.condiment-castle.com" isOnline={false} playerCount="0" maxPlayerCount="8"/>
+          <ServerCard game="valheim" ip="vh.condiment-castle.com" isOnline={false} playerCount="0" maxPlayerCount="8"/>
         </div>
       </section>
     </div>

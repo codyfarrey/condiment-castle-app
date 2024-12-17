@@ -20,7 +20,6 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: 'Roboto', sans-serif;
-  padding: 1rem;
 }
 
 h1, h2, h3 {
@@ -32,49 +31,45 @@ button {
   font-weight: 400;
 }
 
-/* Card container */
+.home {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0;
+  background-color: #424153;
+}
+
 .serverCard {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
-  border-radius: 0.5rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  background-color: #fff;
+  width: auto;
+  margin: 8;
+  background-color: #2C2C38;
+  border-radius: 25px;
 }
 
-/* Left content (title, IP, status) */
 .serverCardContent {
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
+  align-items: center;
   padding: 1rem;
 }
 
-/* Title styling */
 .serverCardTitle {
-  font-size: 2rem;
+  font-size: 3rem;
   font-weight: 600;
   color: #ffffff;
+  text-transform: capitalize;
 }
 
-/* IP address styling */
 .serverCardIP {
   color: #666;
 }
 
-/* Status text styling */
 .serverCardStatus {
   font-weight: bold;
-}
-
-.serverCard {
-  display: flex;
-  flex-direction: column;
-  width: 600px;
-  margin: 15px;
-  background-color: #2C2C38;
-  border-radius: 10px;
 }
 
 .serverCardTop {
@@ -82,17 +77,24 @@ button {
 }
 
 .serverCardImage {
-  width: 275px;
-  height: 275px;
+  width: 300px;
   border-radius: 45%;
-  object-fit: cover;
 }
 
-/* Button container */
 .serverCardButtons {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   gap: 1rem;
   margin-top: auto;
+}
+
+.statusLabel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.statusOrb {
+  margin: 8px;
 }
