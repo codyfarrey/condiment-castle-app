@@ -14,9 +14,9 @@ export default function Home() {
 
       <section className="servers">
         <div className="serverList">
-          <ServerCard game="minecraft" />
-          <ServerCard game="astroneer" />
-          <ServerCard game="valheim" />
+          <ServerCard game="minecraft" ip="mc.condiment-castle.com" serverStatus="Online" playerCount="1/12" />
+          <ServerCard game="astroneer" ip="an.condiment-castle.com" serverStatus="Offline" playerCount="0/8"/>
+          <ServerCard game="valheim" ip="vh.condiment-castle.com" serverStatus="Offline" playerCount="0/8"/>
         </div>
       </section>
     </div>
