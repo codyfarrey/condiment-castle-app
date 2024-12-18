@@ -31,6 +31,12 @@ button {
   font-weight: 400;
 }
 
+footer {
+  color: #999;
+  display: flex;
+  justify-content: center;
+}
+
 .home {
   max-width: 800px;
   margin: 0 auto;
@@ -41,11 +47,9 @@ button {
 .serverCard {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
-  padding: 1rem;
-  width: auto;
-  margin: 8;
+  padding: 0.5rem;
+  margin: 1rem;
   background-color: #2C2C38;
   border-radius: 25px;
 }

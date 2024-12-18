@@ -5,6 +5,9 @@ import Image from 'next/image';
 
 
 export default function Home() {
+  var d = new Date(); 
+  let currentYear = d.getFullYear();
+
   return (
     <div className="home">
       <Navbar />
@@ -19,6 +22,10 @@ export default function Home() {
           <ServerCard game="valheim" ip="vh.condiment-castle.com" isOnline={false} playerCount="0" maxPlayerCount="8"/>
         </div>
       </section>
+
+    
+  
+      <footer><small>&copy; Copyright {currentYear}, Condiment Castle</small></footer>
     </div>
   );
 }
