@@ -58,7 +58,6 @@ footer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 1rem;
 }
 
 .serverCardTitle {
@@ -80,8 +79,16 @@ footer {
   display: flex;
 }
 
-.serverCardImage {
-  width: 300px;
+.serverImageContainer {
+  display: flex;
+  justify-content: center;  /* Horizontally center the image */
+  align-items: center;      /* Vertically center the image */
+  height: 100%;             /* Ensure the container takes up the full height of the parent */
+}
+
+.serverCard img {  
+  width: 20rem;
+  height: 20rem;
   border-radius: 45%;
 }
 
