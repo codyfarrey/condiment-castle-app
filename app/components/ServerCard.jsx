@@ -4,7 +4,14 @@ import Image from 'next/image';
 import StatusLabel from "./StatusLabel";
 import MemoryGraph from "./MemoryGraph";
 
-export default function ServerCard({game, ip, isOnline, playerCount, maxPlayerCount, data }) {
+export default function ServerCard({serverData}) {
+    let game = serverData.game;
+    let ip = serverData.ip;
+    let status = serverData.status;
+    let playerCount = serverData.playerCount;
+    let maxPlayerCount = serverData.maxPlayerCount;
+    let metrics = serverData.metrics;
+
     const startServerClicked = () => {
         console.log("Starting Server...");
     }
@@ -14,7 +21,7 @@ export default function ServerCard({game, ip, isOnline, playerCount, maxPlayerCo
     }
 
     const sortedData = Object.fromEntries(
-        Object.entries(data).sort(([keyA], [keyB]) => new Date(keyA) - new Date(keyB))
+        Object.entries(metrics).sort(([keyA], [keyB]) => new Date(keyA) - new Date(keyB))
     );
 
     function convertToCST(timestamp) {
@@ -39,7 +46,7 @@ export default function ServerCard({game, ip, isOnline, playerCount, maxPlayerCo
                 <div className="serverCardContent">
                     <h2 className="serverCardTitle">{game}</h2>
                     <p className="serverCardIP">{ip}</p>
-                    <StatusLabel isOnline={isOnline} playerCount={playerCount} maxPlayerCount={maxPlayerCount} />
+                    <StatusLabel status={status} playerCount={playerCount} maxPlayerCount={maxPlayerCount} />
                     <MemoryGraph timestamps={timestamps} values={values} />
                     <div className="serverCardButtons">
                         <Button label="Start Server" onClick={startServerClicked} />
