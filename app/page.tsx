@@ -2,6 +2,7 @@
 import Navbar from './components/Navbar';
 import ServerCard from './components/ServerCard';
 import Image from 'next/image';
+import axios from 'axios';
 
 
 export default function Home() {
@@ -9,67 +10,84 @@ export default function Home() {
   let currentYear = d.getFullYear();
 
 
-  const metricsResponseJson = {
-    "servers": [
-      {
-        "game": "minecraft",
-        "ip": "mc.condiment-castle.com",
-        "playerCount": 1,
-        "maxPlayerCount": 20,
-        "status": "Online",
-        "metrics": {
-          "2024-12-19T18:19:00Z": 85.63028971354167,
-          "2024-12-19T18:15:00Z": 85.39021809895833,
-          "2024-12-19T18:20:00Z": 85.87443033854167,
-          "2024-12-19T18:16:00Z": 85.40242513020833,
-          "2024-12-19T18:21:00Z": 86.16536458333333,
-          "2024-12-19T18:17:00Z": 85.4248046875,
-          "2024-12-19T18:13:00Z": 85.06876627604167,
-          "2024-12-19T18:22:00Z": 86.64143880208333,
-          "2024-12-19T18:18:00Z": 85.48177083333333,
-          "2024-12-19T18:14:00Z": 85.33528645833333
-        }
-      },
-      {
-        "game": "astroneer",
-        "ip": "an.condiment-castle.com",
-        "playerCount": 0,
-        "maxPlayerCount": 8,
-        "status": "Starting",
-        "metrics": {
-          "2024-12-19T18:19:00Z": 0,
-          "2024-12-19T18:15:00Z": 0,
-          "2024-12-19T18:20:00Z": 0,
-          "2024-12-19T18:16:00Z": 0,
-          "2024-12-19T18:21:00Z": 0,
-          "2024-12-19T18:17:00Z": 0,
-          "2024-12-19T18:13:00Z": 0,
-          "2024-12-19T18:22:00Z": 0,
-          "2024-12-19T18:18:00Z": 0,
-          "2024-12-19T18:14:00Z": 0
-        }
-      },
-      {
-        "game": "valheim",
-        "ip": "vh.condiment-castle.com",
-        "playerCount": 0,
-        "maxPlayerCount": 8,
-        "status": "Offline",
-        "metrics": {
-          "2024-12-19T18:19:00Z": 0,
-          "2024-12-19T18:15:00Z": 0,
-          "2024-12-19T18:20:00Z": 0,
-          "2024-12-19T18:16:00Z": 0,
-          "2024-12-19T18:21:00Z": 0,
-          "2024-12-19T18:17:00Z": 0,
-          "2024-12-19T18:13:00Z": 0,
-          "2024-12-19T18:22:00Z": 0,
-          "2024-12-19T18:18:00Z": 0,
-          "2024-12-19T18:14:00Z": 0
-        }
+  let metricsResponseJson = [
+    {
+      "game": "Minecraft",
+      "ip": "mc.condiment-castle.com",
+      "port": 25565,
+      "playerCount": 0,
+      "maxPlayerCount": 20,
+      "status": "Offline",
+      "metrics": {
+        "2024-12-22T19:46:33.291007300Z": 0,
+        "2024-12-22T19:50:33.291007300Z": 0,
+        "2024-12-22T19:54:33.291007300Z": 0,
+        "2024-12-22T19:47:33.291007300Z": 0,
+        "2024-12-22T19:51:33.291007300Z": 0,
+        "2024-12-22T19:44:33.291007300Z": 0,
+        "2024-12-22T19:48:33.291007300Z": 0,
+        "2024-12-22T19:52:33.291007300Z": 0,
+        "2024-12-22T19:45:33.291007300Z": 0,
+        "2024-12-22T19:49:33.291007300Z": 0,
+        "2024-12-22T19:53:33.291007300Z": 0
       }
-    ]
-  }
+    },
+    {
+      "game": "Astroneer",
+      "ip": "an.condiment-castle.com",
+      "port": 8777,
+      "playerCount": 0,
+      "maxPlayerCount": 8,
+      "status": "Offline",
+      "metrics": {
+        "2024-12-22T19:47:33.330485600Z": 0,
+        "2024-12-22T19:51:33.330485600Z": 0,
+        "2024-12-22T19:44:33.330485600Z": 0,
+        "2024-12-22T19:48:33.330485600Z": 0,
+        "2024-12-22T19:52:33.330485600Z": 0,
+        "2024-12-22T19:45:33.330485600Z": 0,
+        "2024-12-22T19:49:33.330485600Z": 0,
+        "2024-12-22T19:53:33.330485600Z": 0,
+        "2024-12-22T19:46:33.330485600Z": 0,
+        "2024-12-22T19:50:33.330485600Z": 0,
+        "2024-12-22T19:54:33.330485600Z": 0
+      }
+    },
+    {
+      "game": "Valheim",
+      "ip": "vh.condiment-castle.com",
+      "port": 2456,
+      "playerCount": 0,
+      "maxPlayerCount": 8,
+      "status": "Offline",
+      "metrics": {
+        "2024-12-22T19:45:33.369904500Z": 0,
+        "2024-12-22T19:49:33.369904500Z": 0,
+        "2024-12-22T19:53:33.369904500Z": 0,
+        "2024-12-22T19:44:33.369904500Z": 0,
+        "2024-12-22T19:48:33.369904500Z": 0,
+        "2024-12-22T19:52:33.369904500Z": 0,
+        "2024-12-22T19:47:33.369904500Z": 0,
+        "2024-12-22T19:51:33.369904500Z": 0,
+        "2024-12-22T19:46:33.369904500Z": 0,
+        "2024-12-22T19:50:33.369904500Z": 0,
+        "2024-12-22T19:54:33.369904500Z": 0
+      }
+    }
+  ];
+
+  const fetchServerData = () => {
+    console.log('fetching data from server');
+    axios.get('http://localhost:8080/api/servers')
+    .then(function (response) {
+      metricsResponseJson = response.data;
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+  };
+
+  fetchServerData();  
 
   return (
     <div className="home">
@@ -81,8 +99,8 @@ export default function Home() {
       <section className="servers">
         <div className="serverList">
        
-          {metricsResponseJson.servers.map((item, index) => (
-            <ServerCard serverData={item} />
+          {metricsResponseJson.map((item, index) => (
+            <ServerCard key={index} serverData={item} />
           ))}
 
         </div>

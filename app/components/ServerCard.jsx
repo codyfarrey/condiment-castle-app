@@ -7,6 +7,7 @@ import MemoryGraph from "./MemoryGraph";
 export default function ServerCard({serverData}) {
     let game = serverData.game;
     let ip = serverData.ip;
+    let port = serverData.port;
     let status = serverData.status;
     let playerCount = serverData.playerCount;
     let maxPlayerCount = serverData.maxPlayerCount;
@@ -45,7 +46,7 @@ export default function ServerCard({serverData}) {
             <div className="serverCardTop">
                 <div className="serverCardContent">
                     <h2 className="serverCardTitle">{game}</h2>
-                    <p className="serverCardIP">{ip}</p>
+                    <p className="serverCardIP">{`${ip}:${port}`}</p>
                     <StatusLabel status={status} playerCount={playerCount} maxPlayerCount={maxPlayerCount} />
                     <MemoryGraph timestamps={timestamps} values={values} />
                     <div className="serverCardButtons">

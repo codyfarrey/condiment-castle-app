@@ -79,6 +79,12 @@ footer {
   display: flex;
 }
 
+@media (max-width: 650px) {
+  .serverImageContainer img {
+    display: none;
+  }
+}
+
 .serverImageContainer {
   display: flex;
   justify-content: center;  /* Horizontally center the image */
