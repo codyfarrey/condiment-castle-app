@@ -1,6 +1,7 @@
-import { Line } from "react-chartjs-2";
-import Chart from 'chart.js/auto'
+import Chart from 'chart.js/auto';
+import { ReactChart } from 'chartjs-react';
 import React from "react";
+
 
 
 export default function MemoryGraph({timestamps, values}) {
@@ -36,7 +37,7 @@ export default function MemoryGraph({timestamps, values}) {
 
   return (
     <div className = "memoryGraph">
-        <Line data={data} options={options} />
+        <ReactChart type={"line"} data={data} options={options} />
     </div>
   );
 }

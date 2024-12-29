@@ -6,13 +6,13 @@ import axios from 'axios';
 
 
 export default function Home() {
-  var d = new Date(); 
-  let currentYear = d.getFullYear();
+  const d = new Date(); 
+  const currentYear = d.getFullYear();
 
 
   let metricsResponseJson = [
     {
-      "game": "Minecraft",
+      "game": "minecraft",
       "ip": "mc.condiment-castle.com",
       "port": 25565,
       "playerCount": 0,
@@ -33,7 +33,7 @@ export default function Home() {
       }
     },
     {
-      "game": "Astroneer",
+      "game": "astroneer",
       "ip": "an.condiment-castle.com",
       "port": 8777,
       "playerCount": 0,
@@ -54,7 +54,7 @@ export default function Home() {
       }
     },
     {
-      "game": "Valheim",
+      "game": "valheim",
       "ip": "vh.condiment-castle.com",
       "port": 2456,
       "playerCount": 0,
@@ -78,6 +78,7 @@ export default function Home() {
 
   const fetchServerData = () => {
     console.log('fetching data from server');
+    
     axios.get('http://localhost:8080/api/servers')
     .then(function (response) {
       metricsResponseJson = response.data;
@@ -85,6 +86,7 @@ export default function Home() {
     .catch(function (error) {
       console.log(error);
     });
+    
   };
 
   fetchServerData();  
