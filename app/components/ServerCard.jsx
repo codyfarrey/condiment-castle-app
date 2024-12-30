@@ -56,7 +56,7 @@ export default function ServerCard({serverData}) {
                 </div>
 
                 <div className="serverImageContainer">
-                    <Image className="serverCardImage" src={`/${game}.jpg`} alt="Server Image" width={300} height={300} />
+                    <Image className="serverCardImage" src={`/${game.toLowerCase()}.jpg`} alt="Server Image" width={300} height={300} />
                 </div>
 
             </div>
